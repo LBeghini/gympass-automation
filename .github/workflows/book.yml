@@ -25,5 +25,5 @@ jobs:
     - name: Run Book
       id: run_book
       run: npm run book
-    - if: run_book
+    - if: steps.run_book.outputs.result == 'false'
       run: npm run checkin
