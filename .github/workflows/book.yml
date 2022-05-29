@@ -24,6 +24,11 @@ jobs:
     - run: npm ci
     - name: Run Book
       id: run_book
-      run: npm run book
+      run: |
+        if npm run book; then
+          echo "::set-output name=result::true"
+        else
+          echo "::set-output name=result::false"
+        fi
     - if: steps.run_book.outputs.result == 'false'
       run: npm run checkin
