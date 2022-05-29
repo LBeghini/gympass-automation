@@ -22,3 +22,6 @@ jobs:
     - run: sed -i 's/GYMPASS_PASSWORD/${{ secrets.GYMPASS_PASSWORD }}/g' cypress.env.json
     - run: npm ci
     - run: npm run book
+    - name: Checkin
+      run: npm run checkin
+      if: $?
