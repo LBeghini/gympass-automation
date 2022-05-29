@@ -178,5 +178,4 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node,cypressio,visualstudiocode
 
-cypress.env.json
 .vscode
