@@ -16,7 +16,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '14'
         cache: 'npm'
     - run: sed -i 's/GYMPASS_USER/${{ secrets.GYMPASS_USER }}/g' cypress.env.json
     - run: sed -i 's/GYMPASS_PASSWORD/${{ secrets.GYMPASS_PASSWORD }}/g' cypress.env.json
