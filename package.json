@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cypress open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "checkin": "cypress run --spec 'cypress/integration/checkin.spec.js'",
+    "book": "cypress run --spec 'cypress/integration/book_class.spec.js'",
+    "cancel": "cypress run --spec 'cypress/integration/cancel_class.spec.js'"
   },
   "author": "",
   "license": "ISC",
