@@ -1,7 +1,7 @@
 {
   "viewportWidth": 428,
   "viewportHeight": 926,
-  "baseUrl": "https://www.gympass.com",
+  "baseUrl": "https://www.gympass.com/br",
   "defaultCommandTimeout": 40000,
   "chromeWebSecurity": false
 }
