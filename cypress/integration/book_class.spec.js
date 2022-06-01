@@ -22,8 +22,11 @@ describe('[GymPass - Book Class]', () => {
 
       cy.get('button:contains("Book")')
         .parent()
-        .filter(`:contains("${Cypress.env('book_class_gym_class')}")`)
-        .filter(`:contains("${Cypress.env('book_class_time')}")`)
+        .filter(
+          `:containsInsensitive("${Cypress.env('book_class_gym_class')}")`
+        )
+        .filter(`:containsTimeAfter("${Cypress.env('book_class_time')}")`)
+        .first()
         .find('button')
         .click();
 

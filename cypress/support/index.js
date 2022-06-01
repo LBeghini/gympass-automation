@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-
+import { convertTimeToInt } from './utils';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -27,3 +27,20 @@ Cypress.on('uncaught:exception', (err) => {
 Cypress.on('window:before:load', (win) => {
   delete win.fetch;
 });
+
+Cypress.$.expr.pseudos.containsInsensitive = function (a, i, m) {
+  return Cypress.$(a).text().toLowerCase().indexOf(m[3].toLowerCase()) >= 0;
+};
+
+Cypress.$.expr.pseudos.containsTimeAfter = function (a, i, m) {
+  let text = Cypress.$(a).text().toLowerCase();
+  var matched = text.match(/\d\d?h\d{0,2}/);
+
+  if (matched != null) {
+    let idealTime = convertTimeToInt(m[3]);
+    let time = convertTimeToInt(matched[0]);
+
+    return time >= idealTime;
+  }
+  return false;
+};
