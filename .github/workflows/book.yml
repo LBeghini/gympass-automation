@@ -25,13 +25,4 @@ jobs:
     - run: sed -i 's/GYMPASS_USER/${{ secrets.GYMPASS_USER }}/g' cypress.env.json
     - run: sed -i 's/GYMPASS_PASSWORD/${{ secrets.GYMPASS_PASSWORD }}/g' cypress.env.json
     - run: npm ci
-    - name: Run Book
-      id: run_book
-      run: |
-        if npm run book; then
-          echo "::set-output name=result::true"
-        else
-          echo "::set-output name=result::false"
-        fi
-    - if: steps.run_book.outputs.result == 'false'
-      run: npm run checkin
+    - run: npm run book
