@@ -20,5 +20,7 @@ jobs:
       with:
         node-version: '14'
         cache: 'npm'
+    - run: sed -i 's/GYMPASS_USER/${{ secrets.GYMPASS_USER }}/g' cypress.env.json
+    - run: sed -i 's/GYMPASS_PASSWORD/${{ secrets.GYMPASS_PASSWORD }}/g' cypress.env.json
     - run: npm ci
     - run: npm run cancel
