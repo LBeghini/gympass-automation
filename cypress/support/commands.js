@@ -31,7 +31,7 @@ Cypress.Commands.add('login', () => {
   const email = Cypress.env('login');
   const password = Cypress.env('password');
 
-  cy.get('a[data-parameter-click-cta="login"]').click();
+  cy.get('a[data-parameter-click-cta="login"]').click({ force: true });
   cy.location('pathname').should('include', '/auth');
 
   cy.get('input#username').type(`${email}`);
